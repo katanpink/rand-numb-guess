@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 800px;
+            height: 500px;
+            background-color: chocolate;
+            text-align: center;
+            font-size: 28px;
+            margin: auto;
+            margin-top: 150px;
+            border-radius: 10px;
+        }
+
+        .title {
+            margin: 0px;
+            background-color: rgb(93, 93, 93);
+        }
+
+        #butt {
+            margin: auto;
+            margin-top: 40px;
+            width: 200px;
+            height: 50px;
+            border-radius: 7px;
+        }
+
+        #jerma {
+            margin: auto;
+            margin-top: 50px;
+            width: 400px;
+            height: 180px;
+            text-align: center;
+            font-size: 150px;
+        }
+        #ui {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">The random number generator</h1>
+    <h2 id="jerma" style="background-color: bisque; border-radius: 15px;">?????</h2>
+    <form id="ui">
+        <input type="number" placeholder="5-digit guess" maxlength="5" id="guess"><br>
+        <button id="butt" onclick="gen()">Guess</button>
+    </form>
+    <script>
+        const rand1 = Math.round(Math.random() * 9)
+        const rand2 = Math.round(Math.random() * 9)
+        const rand3 = Math.round(Math.random() * 9)
+        const rand4 = Math.round(Math.random() * 9)
+        const rand5 = Math.round(Math.random() * 9)
+        const rand = rand1 + (rand2 * 10) + (rand3 * 100) + (rand4 * 1000) + (rand5 * 10000)
+        console.log(rand)
+        var resets = 0
+        function gen() {
+            var gus = document.getElementById("guess").value;
+            if (gus == rand) {
+                window.alert('you won')
+                window.alert('It took you ' + resets + ' guesses')
+            } else if (gus < rand) {
+                window.alert('too low guess again')
+                resets++
+            } else if (gus > rand) {
+                window.alert('too high guess again')
+                resets++
+            }
+        }
+    </script>
+</body>
+
+</html>
